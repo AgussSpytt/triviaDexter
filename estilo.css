@@ -1,0 +1,307 @@
+body {
+    background-color: #0d0d0d;
+    background-image: radial-gradient(#2b0000 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px 10px 80px 10px;
+}
+
+.titulo-principal {
+    text-align: center;
+    font-size: 42px;
+    color: #cc0000;
+    font-family: 'Mystery Quest', system-ui;
+    text-shadow: 2px 2px 5px #000;
+    margin-bottom: 20px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.tarjeta {
+    background-color: #1a1a1a;
+    border: 2px solid #8b0000;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0px 4px 10px rgba(139, 0, 0, 0.4);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.tarjeta:hover {
+    border-color: #ff0000;
+    transform: translateY(-4px);
+    background-color: #241414;
+}
+
+.tarjeta img {
+    width: 220px;
+    height: 160px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ff0000;
+}
+
+.orden {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.titulo {
+    font-family: 'Mystery Quest', system-ui;
+    font-size: 24px;
+    color: #ff3333;
+    margin: 0;
+}
+
+.pregunta {
+    font-family: 'Handjet', sans-serif;
+    font-size: 26px;
+    color: #e6e6e6;
+    margin: 0;
+}
+
+.casilla {
+    background-color: #2b2b2b;
+    border: 2px solid #8b0000;
+    color: #ffffff;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 80%;
+}
+
+.opciones-radio {
+    text-align: left;
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.puntaje {
+    width: 160px;
+    height: 60px;
+    background-color: #8b0000;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    line-height: 60px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.cronometro-box {
+    width: 140px;
+    height: 40px;
+    background-color: #1a1a1a;
+    border: 2px solid #ff0000;
+    color: #ff3333;
+    border-radius: 8px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.txt-res {
+    color: #ff6666;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.intro-container {
+    max-width: 600px;
+    margin: 80px auto;
+    text-align: center;
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #8b0000;
+}
+
+.intro-texto {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.btn-inicio {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #8b0000;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-inicio:hover {
+    background-color: #ff0000;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+    color: #888;
+}
+
+@media (max-width: 600px) {
+    .tarjeta {
+        flex-direction: column;
+        width: 90%;
+        text-align: center;
+    }
+    .tarjeta img {
+        width: 100%;
+        height: 180px;
+    }
+    .casilla {
+        width: 100%;
+    }
+    .puntaje {
+        width: 110px;
+        height: 45px;
+        font-size: 16px;
+        line-height: 45px;
+        top: 5px;
+        left: 5px;
+    }
+    .cronometro-box {
+        width: 100px;
+        height: 45px;
+        font-size: 14px;
+        line-height: 45px;
+        top: 5px;
+        right: 5px;
+    }
+}
+/* Botón flotante para la música */
+.btn-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8b0000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 1000;
+}
+
+.btn-musica:hover {
+    background-color: #ff0000;
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 600px) {
+    .btn-musica {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: #1a1a1a;
+    border: 3px solid #ff0000;
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+    animation: aparecer 0.4s ease-out;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-titulo {
+    font-family: 'Mystery Quest', system-ui;
+    color: #ff0000;
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.modal-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #8b0000;
+    margin: 15px 0;
+}
+
+.modal-texto {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.btn-modal {
+    background-color: #8b0000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-modal:hover {
+    background-color: #ff0000;
+}

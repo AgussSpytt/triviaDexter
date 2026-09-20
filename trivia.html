@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexter Trivia - Juego</title>
+    <link rel="shortcut icon" href="IMG/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@400;700&family=Mystery+Quest&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="evento.js"></script>
+</head>
+<body onload="iniciarCronometro()">
+
+<h1 class="titulo-principal"> Dexter</h1>
+
+
+<div id="cronometro" class="cronometro-box">Tiempo: 0s</div>
+
+<!-- Archivo de audio (asegúrate de tener el archivo intro.mp3 en tu carpeta IMG o AUDIO) -->
+<audio id="musicaFondo" loop src="song/08 Perfidia.mp3"></audio>
+
+
+<button id="btnMusica" onclick="alternarMusica()" class="btn-musica"> poner sonido</button>
+
+<div id="resultado" class="puntaje">Puntos: 0</div>
+
+<div class="contenedor">
+
+
+    <div class="tarjeta">
+        <img src="IMG/dop.webp" alt="Dexter">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 1</h3>
+            <p class="pregunta">¿En qué departamento de policía trabaja Dexter?</p>
+            <input type="text" name="txt_1" id="txt_1" onchange="mostrar1()" class="casilla" placeholder="Escribe aquí">
+            <span id="res1" class="txt-res"></span>
+            <span id="respuesta1"></span>
+        </div>
+    </div>
+
+
+    <div class="tarjeta">
+        <img src="IMG/osc.png" alt="Oscuro Pasajero">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 2</h3>
+            <p class="pregunta">¿Cómo llama Dexter a su impulso asesino ?</p>
+            <input type="text" name="txt_2" id="txt_2" onchange="mostrar2()" class="casilla" placeholder="Escribe aquí">
+            <span id="res2" class="txt-res"></span>
+            <span id="respuesta2"></span>
+        </div>
+    </div>
+
+
+    <div class="tarjeta">
+        <img src="IMG/dx6ter.jfif" alt="Profesion">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 3</h3>
+            <p class="pregunta">¿Cuál es la especialidad forense de Dexter?</p>
+            <select name="txt_3" id="txt_3" onchange="mostrar3()" class="casilla">
+                <option value="0">Seleccione una opción</option>
+                <option value="0">Huellas dactilares</option>
+                <option value="1">Análisis de salpicaduras de sangre</option>
+                <option value="0">Balística forense</option>
+                <option value="0">Informática forense</option>
+            </select>
+            <span id="res3" class="txt-res"></span>
+            <span id="respuesta3"></span>
+        </div>
+    </div>
+
+    
+    <div class="tarjeta">
+        <img src="IMG/papa.jfif" alt="Padre">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 4</h3>
+            <p class="pregunta">¿Quién le enseñó a Dexter el código?</p>
+            <select name="txt_4" id="txt_4" onchange="mostrar4()" class="casilla">
+                <option value="0">Seleccione una opción</option>
+                <option value="1">Su padre adoptivo Harry</option>
+                <option value="0">Su hermana Debra</option>
+                <option value="0">El sargento Doakes</option>
+                <option value="0">Su esposa Rita</option>
+            </select>
+            <span id="res4" class="txt-res"></span>
+            <span id="respuesta4"></span>
+        </div>
+    </div>
+
+
+    <div class="tarjeta">
+        <img src="IMG/barcp.jpg" alt="Barco">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 5</h3>
+            <p class="pregunta">¿Cómo se llama el barco de Dexter?</p>
+            <div class="opciones-radio">
+                <input type="radio" name="txt_5" value="0" onchange="mostrar5('txt_5',this.value)"> Miami Vice<br>
+                <input type="radio" name="txt_5" value="1" onchange="mostrar5('txt_5',this.value)"> Slice of Life<br>
+                <input type="radio" name="txt_5" value="0" onchange="mostrar5('txt_5',this.value)"> Blood Vessel<br>
+                <input type="radio" name="txt_5" value="0" onchange="mostrar5('txt_5',this.value)"> Dark Passenger<br>
+            </div>
+            <span id="res5" class="txt-res"></span>
+            <span id="respuesta5"></span>
+        </div>
+    </div>
+
+    
+    <div class="tarjeta">
+        <img src="IMG/debra.jfif" alt="Hermana">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 6</h3>
+            <p class="pregunta">¿Qué es Debra Morgan con Dexter?</p>
+            <div class="opciones-radio">
+                <input type="radio" name="txt_6" value="0" onchange="mostrar6('txt_6',this.value)"> Es su esposa<br>
+                <input type="radio" name="txt_6" value="0" onchange="mostrar6('txt_6',this.value)"> Es su jefa directa<br>
+                <input type="radio" name="txt_6" value="1" onchange="mostrar6('txt_6',this.value)"> Es su hermana adoptiva<br>
+                <input type="radio" name="txt_6" value="0" onchange="mostrar6('txt_6',this.value)"> Es su enemiga principal<br>
+            </div>
+            <span id="res6" class="txt-res"></span>
+            <span id="respuesta6"></span>
+        </div>
+    </div>
+
+    
+    <div class="tarjeta">
+        <img src="IMG/bayni.jfif" alt="hermaano">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 7</h3>
+            <p class="pregunta">¿Quién es el hermano de dexter ?</p>
+            <select name="txt_7" id="txt_7" onchange="mostrar7()" class="casilla">
+                <option value="0">Seleccione una opción</option>
+                <option value="0">Arthur Mitchell</option>
+                <option value="1">Brian Moser </option>
+                <option value="0">Debra</option>
+                <option value="0">James Doakes</option>
+            </select>
+            <span id="res7" class="txt-res"></span>
+            <span id="respuesta7"></span>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <img src="IMG/porta.webp" alt="Trofeo">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 8</h3>
+            <p class="pregunta">¿Qué colecciona Dexter como trofeo de sus víctimas?</p>
+            <div class="opciones-radio">
+                <input type="radio" name="txt_8" value="0" onchange="mostrar8('txt_8',this.value)"> Billeteras y licencias<br>
+                <input type="radio" name="txt_8" value="1" onchange="mostrar8('txt_8',this.value)"> Muestras de sangre en portaobjetos<br>
+                <input type="radio" name="txt_8" value="0" onchange="mostrar8('txt_8',this.value)"> Mechones de cabello<br>
+                <input type="radio" name="txt_8" value="0" onchange="mostrar8('txt_8',this.value)"> Fotografías instantáneas<br>
+            </div>
+            <span id="res8" class="txt-res"></span>
+            <span id="respuesta8"></span>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <img src="IMG/maimi.jfif" alt="Ciudad">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 9</h3>
+            <p class="pregunta">¿En qué ciudad transcurre la mayor parte de la serie?</p>
+            <select name="txt_9" id="txt_9" onchange="mostrar9()" class="casilla">
+                <option value="0">Seleccione una opción</option>
+                <option value="0">New York</option>
+                <option value="0">Los Angeles</option>
+                <option value="1">Miami</option>
+                <option value="0">Chicago</option>
+            </select>
+            <span id="res9" class="txt-res"></span>
+            <span id="respuesta9"></span>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <img src="IMG/image-505-741x371.png" alt="Lugar de trabajo">
+        <div class="orden">
+            <h3 class="titulo">Pregunta 10</h3>
+            <p class="pregunta">que son brian y dexter ?"</p>
+            <input type="text" name="txt_10" id="txt_10" onchange="mostrar10()" class="casilla" placeholder="Escribe aquí...">
+            <span id="res10" class="txt-res"></span>
+            <span id="respuesta10"></span>
+        </div>
+    </div>
+<div id="modalVictoria" class="modal">
+    <div class="modal-contenido">
+        <h2 class="modal-titulo">¡EXCELENTE TRABAJO!</h2>
+        <img src="IMG/fo.gif" alt="Dexter" class="modal-img">
+        <p class="modal-texto">Has obtenido 10/10 puntos. ¡Eres un fan !</p>
+        <button onclick="cerrarModal()" class="btn-modal">Aceptar</button>
+    </div>
+</div>
+</div>
+
+
+<footer>
+    <p>Desarrollado por Agustín Conejeros López | Liceo Bicentenario Comercial Diego Portales 4°I </p>
+</footer>
+
+</body>
+</html>
